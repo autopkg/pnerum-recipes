@@ -18,37 +18,37 @@ Process:
       
   - Processor: Copier
     Arguments:
-      source_path: "%pathname%/%NAME%/%NAME%.app"
-      destination_path: "%pkgroot%/Applications/%NAME%/%NAME%.app"
+      source_path: "%pathname%/%NAME%/KiCad.app"
+      destination_path: "%pkgroot%/Applications/%NAME%/KiCad.app"
       
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/gerbview.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/gerbview.app"
       destination_path: "%pkgroot%/Applications/%NAME%/GerbView.app"
     
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/bitmap2component.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/bitmap2component.app"
       destination_path: "%pkgroot%/Applications/%NAME%/Image Converter.app"
   
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/pl_editor.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/pl_editor.app"
       destination_path: "%pkgroot%/Applications/%NAME%/Page Layout Editor.app"
       
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/pcb_calculator.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/pcb_calculator.app"
       destination_path: "%pkgroot%/Applications/%NAME%/PCB Calculator.app"
       
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/pcbnew.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/pcbnew.app"
       destination_path: "%pkgroot%/Applications/%NAME%/PCB Editor.app"
       
   - Processor: Symlinker
     Arguments:
-      source_path: "/Applications/%NAME%/%NAME%.app/Contents/Applications/eeschema.app"
+      source_path: "/Applications/%NAME%/KiCad.app/Contents/Applications/eeschema.app"
       destination_path: "%pkgroot%/Applications/%NAME%/Schematic Editor.app"
       
   - Processor: PkgCreator
