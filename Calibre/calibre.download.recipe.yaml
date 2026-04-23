@@ -1,0 +1,25 @@
+Comment: Created with Recipe Robot v2.5.0 (https://github.com/homebysix/recipe-robot)
+Description: Downloads the latest version of calibre.
+Identifier: com.github.pnerum.download.calibre
+Input:
+  NAME: calibre
+MinimumVersion: '2.3'
+Process:
+- Arguments:
+    asset_regex: .*\.dmg$
+    github_repo: kovidgoyal/calibre
+  Processor: GitHubReleasesInfoProvider
+- Arguments:
+    filename: '%NAME%-%version%.dmg'
+  Processor: URLDownloader
+- Processor: EndOfCheckPhase
+- Arguments:
+    input_path: '%pathname%/calibre.app'
+    requirement: identifier "net.kovidgoyal.calibre" and anchor apple generic and
+      certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13]
+      /* exists */ and certificate leaf[subject.OU] = NTY7FVCEKP
+  Processor: CodeSignatureVerifier
+- Arguments:
+    input_plist_path: '%pathname%/calibre.app/Contents/Info.plist'
+    plist_version_key: CFBundleShortVersionString
+  Processor: Versioner

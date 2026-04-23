@@ -1,0 +1,23 @@
+Comment: Created with Recipe Robot v2.5.0 (https://github.com/homebysix/recipe-robot)
+Description: Downloads the latest version of calibre and imports it into Munki.
+Identifier: com.github.pnerum.munki.calibre
+Input:
+  MUNKI_REPO_SUBDIR: apps/%NAME%
+  NAME: calibre
+  CATEGORY: Additional
+  pkginfo:
+    catalogs:
+    - testing
+    description: The official source code repository for the calibre ebook manager
+    developer: Kovid Goyal
+    display_name: calibre
+    name: '%NAME%'
+    category: '%CATEGORY%'
+    unattended_install: true
+MinimumVersion: '2.3'
+ParentRecipe: com.github.pnerum.download.calibre
+Process:
+- Arguments:
+    pkg_path: '%pathname%'
+    repo_subdirectory: '%MUNKI_REPO_SUBDIR%'
+  Processor: MunkiImporter
